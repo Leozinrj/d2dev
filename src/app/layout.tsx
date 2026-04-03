@@ -3,7 +3,6 @@ import { Inter } from "next/font/google";
 import { headers } from "next/headers";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
-import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -12,6 +11,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://d2dev.com.br"),
   title: "D2 — Engenharia de Software",
   description:
     "Construímos sistemas, aplicações web, automações e soluções blockchain com critério técnico e visão de produto.",
@@ -29,7 +29,12 @@ export const metadata: Metadata = {
     title: "D2 — Engenharia de Software",
     description:
       "Construímos sistemas, aplicações web, automações e soluções blockchain com critério técnico e visão de produto.",
+    url: "https://d2dev.com.br",
+    siteName: "D2",
     type: "website",
+  },
+  alternates: {
+    canonical: "/",
   },
 };
 
@@ -43,7 +48,6 @@ export default async function RootLayout({
     <html lang="pt-BR" className="scroll-smooth">
       <body className={`${inter.variable} font-sans antialiased`} data-nonce={nonce}>
         <LanguageProvider>{children}</LanguageProvider>
-        <Analytics />
       </body>
     </html>
   );
