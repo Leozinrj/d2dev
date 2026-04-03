@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { headers } from "next/headers";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 
@@ -48,6 +49,7 @@ export default async function RootLayout({
     <html lang="pt-BR" className="scroll-smooth">
       <body className={`${inter.variable} font-sans antialiased`} data-nonce={nonce}>
         <LanguageProvider>{children}</LanguageProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
